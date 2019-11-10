@@ -245,6 +245,7 @@ router.post('/checkout',function(req,res,next)
       var address=req.body.current_address;
       var contact=req.body.contact;
       var btnval=req.body.btn;
+      console.log(btnval+" hhhhhhhhh");
       var totalprice=req.body.totalprice;
     //  console.log(totalprice);
         var today = new Date();

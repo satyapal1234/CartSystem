@@ -16,6 +16,7 @@
 
 	       <h5 class="checkhead">Total Payable Amount= <%=total%></h5>
          </br>
+
          <form action='/checkout' method="post">
 
                        <center>
@@ -36,8 +37,10 @@
 
 
                <input type="hidden" name="_csrf" value="<%=csrfToken%>" > 
-               <center><button type="submit" class="btn btn-success" style=" name="btn" value="offline" >Pay Offline</button>
-               <button type="submit" class="btn btn-danger" style="name="btn" value="online">Pay Online</button></center>
+               <center>
+               <button type="submit" class="btn btn-success"  name="btn" value="offline" >Pay Offline</button>
+               <button type="submit" class="btn btn-danger" name="btn" value="online">Pay Online</button>
+               </center>
          </form>
 
          <% } %>
