@@ -11,7 +11,7 @@ const flash=require('connect-flash');
 const validator=require('express-validator');
 const MongoStore=require('connect-mongo')(session);
 
-//const Product=require('/cart/models/product');
+const Product=require('../models/product');
 
 
 
@@ -86,6 +86,89 @@ console.log('at');
 //updateElectronicdown
 
 
+app.post('/updateElectronicdown',function(req,res)
+{
+	var id=req.body.bookid;
+	 console.log(id);
+console.log('at');
+	if (id.match(/^[0-9a-fA-F]{24}$/))
+	{
+		console.log("saftyuunotdlfsfjljdf");
+		Product.Electronic.findOne({_id:id},function(err,foundlist1)
+		{
+			foundlist1.noOfDownload=foundlist1.noOfDownload+1;
+			foundlist1.save();
+			res.end('done');
+		
+		})
+	}
+	else
+	{
+		console.log("notdlfsfjljdf");
+		res.end('error');
+	}
+   
+	
+})
+
+
+
+
+
+//updateMadeEasyDown
+
+app.post('/updateMadeEasyDown',function(req,res)
+{
+	var id=req.body.bookid;
+	 console.log(id);
+console.log('at');
+	if (id.match(/^[0-9a-fA-F]{24}$/))
+	{
+		console.log("saftyuunotdlfsfjljdf");
+		Product.MadeEasy.findOne({_id:id},function(err,foundlist1)
+		{
+			foundlist1.noOfDownload=foundlist1.noOfDownload+1;
+			foundlist1.save();
+			res.end('done');
+		
+		})
+	}
+	else
+	{
+		console.log("notdlfsfjljdf");
+		res.end('error');
+	}
+   
+	
+})
+
+
+
+//updateAieeeDown
+app.post('/updateAieeeDown',function(req,res)
+{
+	var id=req.body.bookid;
+	 console.log(id);
+console.log('at');
+	if (id.match(/^[0-9a-fA-F]{24}$/))
+	{
+		console.log("saftyuunotdlfsfjljdf");
+		Product.JeeMainsNotes.findOne({_id:id},function(err,foundlist1)
+		{
+			foundlist1.noOfDownload=foundlist1.noOfDownload+1;
+			foundlist1.save();
+			res.end('done');
+		
+		})
+	}
+	else
+	{
+		console.log("notdlfsfjljdf");
+		res.end('error');
+	}
+   
+	
+})
 
 
 
