@@ -270,13 +270,13 @@ router.post('/checkout',function(req,res,next)
 
      else
      {
-			  console.log("fsjfsjfl",contact);
+			  console.log("fsjfsjfl",totalprice);
 		      Insta.setKeys("e94079733b1bc454c6f80b9fe49892a7","febbce517aadfe67fb04dee8706228ae");
 		         var data = new Insta.PaymentData();
                 data.purpose = "book-buy";
                // if(typeofroom==='Double bed AC Room')
             
-                data.amount=totalPrice;
+                data.amount=totalprice;
                 data.currency                = 'INR';
                 data.buyer_name              = "xyz"
                 data.email                   = req.user.email;
@@ -284,11 +284,11 @@ router.post('/checkout',function(req,res,next)
                 data.send_sms                = true
                 data.send_email              = true
                 data.allow_repeated_payments = false
-                data.webhook                 ="https://www.instamojo.com/api/1.1/links/"
-                data.redirect_url            = "https://radiant-taiga-91753.herokuapp.com/success";   
+              
+                data.redirect_url            = "http://localhost:3000/success";   
                
 
-               Insta.createPayment(data, function(error, response) {
+              Insta.createPayment(data, function(error, response) {
                 if (error) 
                   {
                    console.log(error);
