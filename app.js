@@ -11,7 +11,7 @@ const flash=require('connect-flash');
 const validator=require('express-validator');
 const MongoStore=require('connect-mongo')(session);
 
-const Product=require('./app/models/product');
+const Product=require('/cart/models/product');
 
 
 
