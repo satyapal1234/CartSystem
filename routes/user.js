@@ -7,7 +7,7 @@ var csrfProtection=csrf();
 router.use(csrfProtection);
 var Order=require('../models/order');
 var Cart=require('../models/cart');
-
+var User=require('../models/user');
 
 
 var sess=0;
@@ -26,9 +26,17 @@ router.get('/profile',isLoggedIn, function(req,res,next){
     			cart=new Cart(order);
     			order.items=cart.generateArray();
     		})
+
+    		User.findOne({email:req.user.email},function(err,user){
+    			if(err){console.log('kuch glat hai');}
+    			else
+    			{
+    				console.log(orders.length);
+    	         	res.render('user/profile',{orders:orders,user:user});
+    			}
+    		})
     		
-    		console.log(orders.length);
-    		res.render('user/profile',{orders:orders});
+    		
     	}
     })
     passport.sess="1";
