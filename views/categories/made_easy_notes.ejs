@@ -1,0 +1,282 @@
+<%-include('/cart/views/layout')-%>
+
+<%-include('/cart/views/partials/sidenav')-%>
+
+
+
+
+<div  style="padding:10px 0px;" id="main">
+ 
+   <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; 𝓢𝓮𝓵𝓮𝓬𝓽 𝓒𝓪𝓽𝓮𝓰𝓸𝓻𝔂 </span>
+
+
+   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"  data-interval="false">
+
+			 <div style='margin-top:50px;margin-bottom:10px;'>
+			     <center>
+			      <span class="materialheading shadow">Made Easy Notes</span>
+			     </center>
+			 </div>
+
+
+
+                 
+ 	
+	    <div class="carousel-inner">
+
+               <% for(var i=0;i<items.length;i+=2) {%>
+					        <% if(i==0){%>
+								        <div class="carousel-item active" >
+
+											 <div class="container">
+												
+													    <div class="row">
+														    <% for(var j=0;j<items[i].length;j++) {%>
+														       <div class="col-lg-4">
+															    <div class="card shadow " style="margin:20px;">
+															      <div class="card-body">
+															         <div class="thumbnail">
+															            <img src="<%=items[i][j].imagePath%>" class="img-responsive img-fluid pdf">
+															         </div> 
+															         <h5 class="title"><%=items[i][j].title%></h5>
+															        <p class="card-text description"><%=items[i][j].description%></p>
+															           <div class="clearfix">
+
+
+															              <div class="row">
+															                    <div class="col">
+															                       <a class="price" ><%=items[i][j].noOfDownload%></a>
+															                     </div>
+															             
+								                                                 <div class='col'>
+								                                                    <a   href="<%= items[i][j].link%>"  class="btn btn-success"    onclick='updateMadeEasyDown("<%= items[i][j].id %>")' download>Download</a>
+																                  </div>
+															              </div>
+
+
+															           </div> 
+															      </div>
+															    </div>
+															  </div>
+														    <% }%>
+						                                </div>  
+
+
+
+								                      <% if((i+1)<items.length){ %> 
+				                                                          
+															       <div class="container">
+																
+																	    <div class="row">
+																		    <% for(var j=0;j<items[i+1].length;j++) {%>
+																		       <div class="col-lg-4">
+																			    <div class="card shadow " style="margin:20px;">
+																			      <div class="card-body">
+																			         <div class="thumbnail">
+																			            <img src="<%=items[i+1][j].imagePath%>" class="img-responsive img-fluid pdf">
+																			         </div> 
+																			         <h5 class="title"><%=items[i+1][j].title%></h5>
+																			        <p class="card-text description"><%=items[i+1][j].description%></p>
+																			           <div class="clearfix">
+
+																			              <div class="row">
+																			                    <div class="col">
+																			                       <a class="price" ><%=items[i+1][j].noOfDownload%></a>
+																			                     </div>
+																			             
+												                                                 <div class='col'>
+												                                                    <a   href="<%= items[i+1][j].link%>"  class="btn btn-success"    onclick='updateMadeEasyDown("<%= items[i+1][j].id %>")' download>Download</a>
+																				                  </div>
+															                              </div>
+
+																			           </div> 
+																			      </div>
+																			    </div>
+																			  </div>
+																		    <% }%>
+										                                </div>   					  
+																	
+												                  </div>
+
+                                                     <%}%> 					  
+													
+								             </div>
+
+								        </div> 
+
+					         <%}else {%>
+
+                                 <div class="carousel-item " >
+
+									 <div class="container">
+										
+											    <div class="row">
+												    <% for(var j=0;j<items[i].length;j++) {%>
+												       <div class="col-lg-4">
+													    <div class="card shadow " style="margin:20px;">
+													      <div class="card-body">
+													         <div class="thumbnail">
+													            <img src="<%=items[i][j].imagePath%>" class="img-responsive img-fluid pdf">
+													         </div> 
+													        <h5 class="title"><%=items[i][j].title%></h5>
+													        <p class="card-text description"><%=items[i][j].description%></p>
+													           <div class="row">
+												                    <div class="col">
+												                       <a class="price" ><%=items[i][j].noOfDownload%></a>
+												                     </div>
+												             
+					                                                 <div class='col'>
+					                                                    <a   href="<%= items[i][j].link%>"  class="btn btn-success"    onclick='updateMadeEasyDown("<%= items[i][j].id %>")' download>Download</a>
+													                  </div>
+															     </div> 
+													      </div>
+													    </div>
+													  </div>
+												    <% }%>
+				                                </div>  
+
+
+
+				                                <% if((i+1)<items.length){ %> 
+				                                                          
+															       <div class="container">
+																
+																	    <div class="row">
+																		    <% for(var j=0;j<items[i+1].length;j++) {%>
+																		       <div class="col-lg-4">
+																			    <div class="card shadow " style="margin:20px;">
+																			      <div class="card-body">
+																			         <div class="thumbnail">
+																			            <img src="<%=items[i+1][j].imagePath%>" class="img-responsive img-fluid pdf">
+																			         </div> 
+																			         <h5 class="title"><%=items[i+1][j].title%></h5>
+																			        <p class="card-text description"><%=items[i+1][j].description%></p>
+																			          <div class="clearfix">
+
+																			              <div class="row">
+																			                    <div class="col">
+																			                       <a class="price" ><%=items[i+1][j].noOfDownload%></a>
+																			                     </div>
+																			             
+												                                                 <div class='col'>
+												                                                    <a   href="<%= items[i+1][j].link%>"  class="btn btn-success"    onclick='updateMadeEasyDown("<%= items[i+1][j].id %>")' download>Download</a>
+																				                  </div>
+															                              </div>
+
+																			           </div> 
+																			      </div>
+																			    </div>
+																			  </div>
+																		    <% }%>
+										                                </div>   					  
+																	
+												                  </div>
+
+                                                     <%}%> 					  
+											
+						             </div>
+
+						        </div>
+
+			            <%}%>   
+		      
+
+               <% }%>  
+
+
+
+       </div>   
+
+
+   <div style='margin:20px;'>
+
+		<center>
+		<button id="arrowrights" onmouseover="hovright()" onmouseout="hovrightback()" class="carousel-prev btn btn-success" href="#carouselExampleControls" role="button" data-slide="prev"  style="padding:5px 30px;">
+		   <i class="fa fa-arrow-circle-left" id="arrow1"></i>  Previous 
+		</button>
+
+		<button id="arrowlefts" onmouseover="hovleft()" onmouseout="hovleftback()" class="carousel-next btn btn-danger" href="#carouselExampleControls" role="button" data-slide="next" style="padding:5px 30px;" >
+		   Next  <i class="fa fa-arrow-circle-right" id="arrow1"></i>
+		</button>
+
+		</center>  
+	</div>	
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<%-include('/cart/views/partials/footer')-%>
+
+
+
+
+
+
+
+<script>
+   
+    
+function openNav() 
+ {
+ 
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "0px";
+
+  }
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+function updateMadeEasyDown(par)
+{
+
+
+	$.post('/updateMadeEasyDown',{bookid:par},function(data){
+       
+       if(data ==='done')
+       {
+      
+       window.location.href='/categories/made_easy_notes';
+    
+       }
+       else
+       {
+        alert('something wrong happens');
+       }
+	});
+	return true;
+	
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

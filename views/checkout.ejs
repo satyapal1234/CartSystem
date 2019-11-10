@@ -1,0 +1,51 @@
+
+<%- include("layout") -%>
+<div class="row">
+
+	<div class="col-lg-6 shadow" style="margin:0 auto;padding:2% 5%;">
+	    <h4 class="checkhead" style="color:black;">Enter Your Detail</h4><hr>
+        <% if(!login) {%>
+           <div class="alert alert-danger" role="alert">
+              <p style="text-align:center;">Try to login first otherwise payment would not proceed</p>
+           </div>
+
+           <div style="text-align:center;">
+              <a href="/user/signin" class='btn btn-danger' style="padding:10px 50px;" >Login</a>
+           </div>
+        <%} else {%>
+
+	       <h5 class="checkhead">Total Payable Amount= <%=total%></h5>
+         </br>
+         <form action='/checkout' method="post">
+
+                       <center>
+                           <div class="form-group col-lg-10">
+                             
+                               <input type="text" id="contact" name="contact" class="form-control" required placeholder="contact" >
+                           </div>
+                       </center>
+
+                        <center>
+                           <div class="form-group col-lg-10">
+                             
+                               <input type="text" id="current_address" name="current_address" class="form-control" required placeholder="your present address" >
+                           </div>
+
+                           <input type="hidden" name="totalprice" value="<%=total%>">
+                       </center>
+
+
+               <input type="hidden" name="_csrf" value="<%=csrfToken%>" > 
+               <center><button type="submit" class="btn btn-success" style="padding:10px 50px;" name="btn" value="offline" >Pay Offline</button>
+               <button type="submit" class="btn btn-danger" style="padding:10px 50px;" name="btn" value="online">Pay Online</button></center>
+         </form>
+
+         <% } %>
+	</div>
+
+</div>
+
+
+
+
+

@@ -1,0 +1,67 @@
+
+
+<%- include("layout") -%>
+
+
+<%- include("preloader") -%>
+
+
+
+
+<div style='background-color:rgb(230, 255, 255);'>
+<center>
+
+<img src="/ajstyle/cover2.jpg" class='img-fluid ' style='width:auto'>
+
+</center>
+</div>
+<div class="heading" style="margin-top:60px;">
+  <img src="/ajstyle/text.png" class="img-fluid "  >
+  <hr width="70%" color="black">
+</div>
+
+
+
+<div class="container-fluid">
+
+<% for(var i=0;i<items.length;i++) {%>
+   <div class="row ">
+	    <% for(var j=0;j<items[i].length;j++) {%>
+	       <div class="col-lg-4">
+		    <div class="card shadow " style="margin:20px;" >
+		      <div class="card-body">
+		         <div class="thumbnail">
+		            <img src="<%=items[i][j].imagePath%>" class="img-responsive img-fluid">
+		         </div> 
+		         <h3 class="title"><%=items[i][j].title%></h3>
+		        <p class="card-text description"><%=items[i][j].description%></p>
+		           <div class="clearfix">
+		              <a class="price">Rs 300</a>
+		             
+		              <a href="/add-to-cart/<%=items[i][j].id%>" class="btn btn-success add">Add In Cart</a>
+		           </div> 
+		      </div>
+		    </div>
+		  </div>
+	    <% }%>
+	</div>   
+  
+<% }%>
+</div>
+
+
+
+<div>
+   <center>
+    <a class="buttonx" href='/ebook'>Browse More Ebook....</a>
+   </center>
+</div>
+
+</br></br></br>
+
+
+
+  <%-include('/cart/views/partials/footer')-%>
+
+
+

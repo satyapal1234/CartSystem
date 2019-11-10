@@ -1,0 +1,220 @@
+
+<%-include('/cart/views/layout')-%>
+
+<%-include('/cart/views/partials/sidenav')-%>
+
+
+
+
+
+<div  style="padding:10px 0px;" id="main">
+ 
+  <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; 𝓢𝓮𝓵𝓮𝓬𝓽 𝓒𝓪𝓽𝓮𝓰𝓸𝓻𝔂 </span>
+
+
+ <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"  data-interval="false">
+
+  <!-- Indicators -->
+  
+  <div style='margin-top:50px;margin-bottom:10px;'>
+     <center>
+      <span class="materialheading shadow">Placement Preparation Material</span>
+     </center>
+  </div>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+
+	    <div class="carousel-item active" >
+	            <div class="container"  >
+					<% for(var i=0;i<items.length;i++) {%>
+					   <div class="row ">
+						    <% for(var j=0;j<items[i].length;j++) {%>
+						       <div class="col-lg-4">
+							    <div class="card shadow" style="margin:20px;">
+							      <div class="card-body">
+							         <div class="thumbnail">
+							            <img src="<%=items[i][j].imagePath%>" class="img-responsive pdf">
+							         </div>
+							         </br> 
+							         <h5 class="title"><%=items[i][j].title%></h5>
+							        <p class="card-text description"><%=items[i][j].description%></p>
+							           <div class="clearfix">
+							              <a class="price">Rs <%=items[i][j].price%></a>
+							             
+							              <a href="<%=items[i][j].link%>" class="btn btn-success add">Buy Now</a>
+							           </div> 
+							      </div>
+							    </div>
+							  </div>
+						    <% }%>
+						</div>   
+					  
+					<% }%>
+               </div>
+	    </div>
+
+
+	    <div class="carousel-item">
+	       <div class="container">
+					<% for(var i=0;i<items.length;i++) {%>
+					   <div class="row ">
+						    <% for(var j=0;j<items[i].length;j++) {%>
+						       <div class="col-lg-4">
+							    <div class="card" style="margin:20px;">
+							      <div class="card-body">
+							         <div class="thumbnail">
+							            <img src="<%=items[i][j].imagePath%>" class="img-responsive pdf">
+							         </div>
+							         </br> 
+							         <h5 class="title"><%=items[i][j].title%></h5>
+							        <p class="card-text description"><%=items[i][j].description%></p>
+							           <div class="clearfix">
+							              <a class="price">Rs <%=items[i][j].price%></a>
+							             
+							              <a href="<%=items[i][j].link%>" class="btn btn-success add">Buy Now</a>
+							           </div> 
+							      </div>
+							    </div>
+							  </div>
+						    <% }%>
+						</div>   
+					  
+					<% }%>
+               </div>
+	    </div>
+
+
+
+	    <div class="carousel-item">
+	       <div class="container">
+					<% for(var i=0;i<items.length;i++) {%>
+					   <div class="row ">
+						    <% for(var j=0;j<items[i].length;j++) {%>
+						       <div class="col-lg-4">
+							    <div class="card" style="margin:20px;">
+							      <div class="card-body">
+							         <div class="thumbnail">
+							            <img src="<%=items[i][j].imagePath%>" class="img-responsive pdf">
+							         </div>
+							         </br> 
+							         <h5 class="title"><%=items[i][j].title%></h5>
+							        <p class="card-text description"><%=items[i][j].description%></p>
+							           <div class="clearfix">
+							              <a class="price">Rs <%=items[i][j].price%></a>
+							             
+							              <a href="<%=items[i][j].link%>" class="btn btn-success add">Buy Now</a>
+							           </div> 
+							      </div>
+							    </div>
+							  </div>
+						    <% }%>
+						</div>   
+					  
+					<% }%>
+               </div>
+	    </div>
+
+  </div>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<button id="arrowright" onmouseover="hovright()" onmouseout="hovrightback()" class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" style="margin-top: 350px">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <i class="fa fa-chevron-right fa-2x sr-only" id="arrow1"></i>
+</button>
+
+<button id="arrowleft" onmouseover="hovleft()" onmouseout="hovleftback()" class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" style="margin-top: 350px">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+    <i class="fa fa-chevron-left fa-2x sr-only" id="arrow2"></i>
+</button>
+
+
+
+<%-include('/cart/views/partials/footer')-%>
+
+
+<script>
+    
+
+     document.getElementById("arrow1").style.display="none";
+     document.getElementById("arrow2").style.display="none";
+
+     function hovright()
+     {
+       document.getElementById("arrow1").style.display="block";
+       document.getElementById("arrowright").style.width="50px";
+       document.getElementById("arrowright").style.height="80px";
+       
+     }
+
+      function hovleft()
+     {
+       document.getElementById("arrow2").style.display="block";  
+        document.getElementById("arrowleft").style.width="50px";
+       document.getElementById("arrowleft").style.height="80px";     
+     }
+
+     function hovrightback()
+     {
+      document.getElementById("arrow1").style.display="none";
+      document.getElementById("arrowright").style.width="40px";
+      document.getElementById("arrowright").style.height="50px";
+     }
+
+      function hovleftback()
+     {
+      document.getElementById("arrow2").style.display="none";
+      document.getElementById("arrowleft").style.width="40px";
+       document.getElementById("arrowleft").style.height="50px";
+     }
+
+
+      function placeorder()
+      {
+      
+            
+            window.location.href='/placeorder';
+         
+
+        
+      }
+
+      function showspan()
+      {
+       $("#myModal2").modal();
+      }
+     
+    
+function openNav() 
+ {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "0px";
+
+  }
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+
+   $('.carousel').carousel({
+    interval: false
+}); 
+
+
+</script>

@@ -1,0 +1,63 @@
+
+<%-include('/cart/views/toplayout')-%>
+<style>
+ body
+ {
+ background-color:rgba(0,0,0,0.3);
+ }
+ .loginpart
+ {
+ background-color:white;
+ }
+</style>
+
+<div class="row">
+   <div class="col-md-8 col-md-offset-8 loginpart" style="margin:0 auto">
+          
+          <% if(hasErrors) {%>
+           <div class="alert alert-danger" role="alert">
+			 <% for(var i=0;i<messages.length;i++) {%>
+                <p><%=messages[i]%></p>
+			 <% } %>
+		   </div>
+
+          <% } %>
+
+          <div class='loginform '>
+               <div class="row subloginform" >
+
+                     <div class="col-lg-6 imgpart2 ">
+				       
+				     </div>
+
+				      <div class="col-lg-6" style="padding:140px 30px;">
+
+				          <form action="/user/signup" method="post">
+				                 <div class="textlog">𝓡𝓮𝓰𝓲𝓼𝓽𝓮𝓻 𝓗𝓮𝓻𝓮</div>
+
+				                 <div class="form-group">
+					                 <lable for="name">Name</label>
+					                 <input type="text" id="name" name="name" class="form-control" required >
+					             </div>
+
+					             <div class="form-group">
+					                 <lable for="email">Email</label>
+					                 <input type="email" id="email" name="email" class="form-control" required >
+					             </div>
+
+					             <div class="form-group">
+					                 <lable for="password">Password</label>
+					                 <input type="password" id="password" name="password" class="form-control" required >
+					             </div>
+					             
+				                  <input type="hidden" name="_csrf" value="<%=csrfToken%>" > 
+					             <center><button type="submit" class="btn btn-danger" style="padding:0px 40px">Sign Up</button></center>
+				          </form>
+
+				        </div>  
+                 </div>
+		  </div>        
+
+        
+   </div>
+</div>

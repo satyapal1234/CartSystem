@@ -1,0 +1,60 @@
+
+<%-include('/cart/views/toplayout')-%>
+<style>
+ body
+ {
+ background-color:rgba(0,0,0,0.3);
+ }
+ .loginpart
+ {
+ background-color:white;
+ }
+</style>
+
+<div class="row ">
+   <div class="col-md-8 col-md-offset-4 loginpart" style="margin:0 auto;">
+         
+        
+
+          <div class='loginform shadow'>
+               <div class="row subloginform" >
+
+	                 <div class="col-lg-6 imgpart ">
+				        
+				     </div>
+
+
+
+		             <div class="col-lg-6" style="padding:140px 30px;">
+
+		                   <% if(hasErrors) {%>
+           <div class="alert alert-danger" role="alert">
+			 <% for(var i=0;i<messages.length;i++) {%>
+                <p><%=messages[i]%></p>
+			 <% } %>
+		   </div>
+
+          <% } %>
+				          <form action="/user/signin" method="post">
+				                <div class="textlog">𝓐𝓬𝓬𝓸𝓾𝓷𝓽 𝓛𝓸𝓰𝓲𝓷</div>
+					             <div class="form-group">
+					                 <lable for="email">Email</label>
+					                 <input type="email" id="email" name="email" class="form-control" required >
+					             </div>
+					             <div class="form-group">
+					                 <lable for="password">Password</label>
+					                 <input type="password" id="password" name="password" class="form-control" required >
+					             </div>
+				                  <input type="hidden" name="_csrf" value="<%=csrfToken%>" > 
+					             <center><button type="submit" class="btn btn-danger" style="padding:0px 40px">Sign In</button></center>
+				          </form>
+				     </div> 
+
+			     
+
+			   </div> 
+		</div>	           
+	    
+        
+   </div>
+</div>

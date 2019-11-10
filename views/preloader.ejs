@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<style>
+
+
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+  #loader {
+    display: block;
+    position: relative;
+    
+    
+   top:30%;
+    
+    z-index: 1001;
+    animation: spin 2s linear infinite;
+    
+   
+  }
+
+#loader-wrapper .loader-section {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background-color: white;
+
+ 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: multiply;
+  z-index: 1000;
+  transform: translateX(0);
+}
+
+  #loader-wrapper .loader-section.section-left {
+    left: 0;
+  }
+
+  #loader-wrapper .loader-section.section-right {
+    right: 0;
+  }
+
+#loader {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 50 auto;
+}
+
+.circ-one {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: rgba(217,91,67,1);
+  border-radius: 100%;
+  float: left;
+  animation: load-x 1s cubic-bezier(0.445, 0.100, 0.550, 0.900) infinite;
+}
+
+.circ-two {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: rgba(84,36,55,1);
+  border-radius: 100%;
+  float: right;
+  animation: load-y 1s cubic-bezier(0.445, 0.100, 0.550, 0.900) infinite;
+}
+
+@keyframes load-x {
+  0%   { left: -10px; transform: scale(1); }
+  25%  { transform: scale(1.5); z-index: 2; }
+  50%  { left: 60px; transform: scale(1); }
+  75%  { transform: scale(0.5); z-index: 1; }
+  100% { left: -10px; transform: scale(1); }
+}
+
+@keyframes load-y {
+  0%   { right: -10px; transform: scale(1); }
+  25%  { transform: scale(0.5); }
+  50%  { right: 60px; transform: scale(1); z-index: 1; }
+  75%  { transform: scale(1.5); z-index: 2; }
+  100% { right: -10px; transform: scale(1); }
+}
+
+
+@keyframes pulse {
+  50% { opacity: 0.5; }
+}
+// Loaded
+.loaded #loader-wrapper .loader-section.section-left {
+  transform: translateY(-100%);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+  transform: translateY(100%);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+  visibility: hidden;
+  transform: translateX(-100%);
+  transition: all 0.3s 1s ease-out;
+}
+
+</style>
+
+</head>
+
+
+
+
+
+<div class="wrapper">
+  
+  <div id="loader-wrapper">
+  
+    <div id="loader" style='margin:0 auto'>
+        
+	   
+	     <center> <img src='ajstyle/book.gif' style='width:120px;height:120px;'  ></center></br>
+	     <div style='font-family:georgia;font-size:17px;text-align:center;'>Loading...</div>
+
+    </div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+</div>
+
+<script>
+
+
+$(document).ready(function() {
+  setTimeout(function() {
+    $('.wrapper').addClass('loaded');
+    
+  });
+});
+
+
+
+jQuery(function(){
+
+  $(window).load(function(){
+  
+  $('.wrapper').removeClass('preload');
+  
+  });
+
+});
+</script>
+
+
+</html>

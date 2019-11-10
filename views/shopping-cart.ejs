@@ -1,0 +1,79 @@
+
+
+<%- include("layout") -%>
+
+
+<% if(products) {%>
+<%  if(products.length >0){%>
+<div class="row">
+<div> <%=products.length%></div>
+   <div class="col-lg-6" style="margin:0 auto">
+      <ul class="list-group">
+
+        <% for(var i=0;i<products.length;i++) {%>
+          <li class="list-group-item">
+             
+              <span id="span1" class="badge badge-secondary"><%=products[i].qty%></span>
+            
+              <strong id="span2" class="col"><%=products[i].item.title%></strong>|
+              <span id="span3" class="label label-success col" style="color:blue;font-weight:bold;"><%=products[i].price%></span>
+           
+              <div class="btn-group" id="span4">
+                 <button class="btn btn-danger dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action list <span class="caret"></span></button>
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a href="/reduce/<%=products[i].item._id%>" class="dropdown-item">Remove By 1</a></li>
+                    <li><a href="/remove/<%=products[i].item._id %>" class="dropdown-item">Remove By All</a></li>
+                 </ul>
+              </div>
+          </li>
+       <% } %>   
+
+
+
+
+         
+      </ul>
+   </div>
+</div>
+
+
+
+
+
+
+
+<div class="row">
+   <div class="col-lg-4" style="margin:0 auto">
+      <strong>Total_Price: <%=totalPrice%></strong>
+   </div>
+</div>
+
+<hr>
+<div class="row">
+   <div class="col-lg-4" style="margin:0 auto">
+     <a class="btn btn-success" href='/checkout' type="button">CheckOut</a>
+   </div>
+</div>
+
+
+<% } else{ %>
+
+<div class="row">
+   <div class="col-lg-4" style="margin:0 auto">
+      <h2>No Items in Cart</h2>
+   </div>
+</div>
+
+<% } %>
+
+
+<% } else{ %>
+
+<div class="row">
+   <div class="col-lg-4" style="margin:0 auto">
+      <h2>No Items in Cart</h2>
+   </div>
+</div>
+
+<% } %>
+

@@ -1,0 +1,72 @@
+
+<%- include("layout") -%>
+
+    <style>
+       
+		  .table_wrapper
+		  {
+		    display: block;
+		  
+		    white-space: nowrap;
+		   
+		   }
+    </style>
+
+<div style='padding:50px 60px;'>
+  
+
+   <span class='succ-text'>
+
+	   <span>Your Orders Are</span>
+	   <span> <img src='/ajstyle/ordericon.jpg' style='width:30px;height:30px;'></span>
+   </sapn>
+
+ </div>
+
+ <div style='padding:10px 60px;'>
+      <div class="table-responsive  col-lg-6" > 
+         <table class="table">
+				  <thead>
+					    <tr>
+						      <th scope="col">#</th>
+						      <th scope="col">Item_Name</th>
+						      <th scope="col">Quantity</th>
+						      <th scope="col">Price</th>
+						      
+					    </tr>
+				  </thead>
+			    <%for(var i=0;i<product.itemdetail.length;i++){%>
+			       
+			           
+						  <tbody>
+							    <tr>
+								      <th scope="row"><%=i%></th>
+								      <td><%=product.itemdetail[i].titles%></td>
+								      <td><%=product.itemdetail[i].qty%></td>
+								       <td><%=product.itemdetail[i].price%></td>
+								      
+								      
+							    </tr>
+
+							    
+						  </tbody>
+
+
+
+			    <%}%>
+       </table>
+    </div>
+
+
+   
+   <div class='row'>
+	     <div class="btn btn-danger col-lg-4" role="alert" style='text-align:center'>
+	       Your Order Has been Successfully Placed <i class='fa fa-check-circle-o'></i>
+	     </div>
+	     <div class='col-lg-8'></div> 
+	</div>     
+     
+</div>
+
+
+
