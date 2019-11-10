@@ -29,6 +29,8 @@ passport.use('local.signup',new LocalStrategy({
 
 //  var password=req.body.password;
   var username=req.body.name;
+  var address=req.body.address;
+  var contact=req.body.contact;
   //console.log("ok man"+password);;
    if(password.length<4)
    {
@@ -49,6 +51,8 @@ passport.use('local.signup',new LocalStrategy({
 
    	  var newUser=new User();
    	  newUser.email=email;
+      newUser.address=address;
+      newUser.contact=contact;
    	  newUser.password=newUser.encryptPassword(password);
       newUser.name=username;
       console.log(username);
