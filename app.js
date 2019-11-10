@@ -10,7 +10,7 @@ const passport=require('passport');//for  login and sign up
 const flash=require('connect-flash');
 const validator=require('express-validator');
 const MongoStore=require('connect-mongo')(session);
-const Product=require('/models/product');
+const Product=require('cart/models/product');
 
 
 
