@@ -34,6 +34,13 @@ router.get('/',function(req,res,next){
 })
 
 
+router.get('/about',function(req,res){
+
+	console.log('ttttttttttttttttttttttttttttttt');
+	res.render("about");
+})
+
+
 router.get('/add-to-cart/:id',function(req,res,next){
 	console.log('no');
 	var productId=req.params.id;
